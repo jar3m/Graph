@@ -75,11 +75,17 @@ int is_connected(Node *a, Node *b) {
 
 //Connect both to represent an undirected path
 void connect(Node *node1, Node *node2) {
+    if(is_connected(node1,node2)){
+        return;   
+    }
     connect_(node1, node2, 0);
     connect_(node2, node1, 0);
 }
 
 void wconnect(Node *node1, Node *node2, double weight) {
+    if(is_connected(node1,node2)){
+        return;   
+    }
     connect_(node1, node2, weight);
     connect_(node2, node1, weight);
 }
